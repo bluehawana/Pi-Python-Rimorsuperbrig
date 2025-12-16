@@ -5,9 +5,22 @@ This guide details how to set up the Raspberry Pi 4 as a "Headless Server" that 
 ## 1. Prepare the Raspberry Pi (Headless Mode)
 1.  **Install OS**: Use **Raspberry Pi OS Lite** (64-bit). You don't need the desktop version since we are using the iPad as the screen.
 2.  **Configure Network (Critical)**:
-    *   **Option A (Mobile Hotspot)**: Configure the Pi to connect to your iPhone/iPad's Personal Hotspot.
-    *   **Option B (Van Wi-Fi)**: If you have a router in the van, connect both Pi and iPad to it.
-    *   *Tip: Set these up in the Raspberry Pi Imager "Advanced Options" (Ctrl+Shift+X) before writing to the SD card.*
+    *   **Scenario A: Central Van Router (Recommended)**: Connect both Starlink and 5G to a central router (like a GL.iNet or Teltonika). Connect Pi and iPad to this *single* Main Van Wi-Fi. This is the most seamless method.
+    *   **Scenario B: Multiple Wi-Fi Networks**: You can pre-configure the Pi to connect to *either* the 5G Router or Starlink automatically.
+        *   In "Advanced Options" -> "Set username and password", also look for Wi-Fi.
+        *   **Pro Tip**: You can add multiple networks by editing `/etc/wpa_supplicant/wpa_supplicant.conf` on the Pi later:
+            ```text
+            network={
+                ssid="Van_5G"
+                psk="password"
+                priority=2
+            }
+            network={
+                ssid="STARLINK"
+                psk="password"
+                priority=1
+            }
+            ```
 3.  **Enable SSH & I2C**: Also in "Advanced Options".
 
 ## 2. Transfer Files
