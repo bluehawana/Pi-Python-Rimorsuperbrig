@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #ffffff;
+    --accent-color: #00ff99;
+    --alert-color: #ff4444;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* Map Section */
+#map-card {
+    grid-row: 1 / span 2;
+    position: relative;
+    padding: 0; /* Full bleed map */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Gauges Section */
+#gauges-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.gauge-item {
+    margin-bottom: 1rem;
+}
+
+.gauge-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+    background-color: #444;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: var(--accent-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Security Section */
+#security-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-indicator {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.status-safe {
+    color: var(--accent-color);
+}
+
+.status-armed {
+    color: orange;
+}
+
+.status-alert {
+    color: var(--alert-color);
+    animation: blink 1s infinite;
+}
+
+.control-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    transition: background 0.3s;
+}
+
+.control-btn:hover {
+    background-color: #555;
+}
+
+.btn-arm {
+    background-color: var(--accent-color);
+    color: black;
+}
+
+.btn-disarm {
+    background-color: var(--alert-color);
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
+
+/* Voice Indicator */
+#voice-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 10px;
+    border-radius: 20px;
+    display: none;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Computer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ maps_api_key }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Van Control Center</h1>
+        <div id="clock">00:00</div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Map Section -->
+        <div id="map-card" class="card">
+            <div id="map"></div>
+        </div>
+
+        <!-- Gauges Section -->
+        <div id="gauges-card" class="card">
+            <h2>Vehicle Status</h2>
+            
+            <div class="gauge-item">
+                <div class="gauge-label">
+                    <span>Fuel</span>
+                    <span id="val-fuel">--%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="bar-fuel" class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="gauge-item">
+                <div class="gauge-label">
+                    <span>Battery</span>
+                    <span id="val-battery">--V</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="bar-battery" class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="gauge-item">
+                <div class="gauge-label">
+                    <span>Water</span>
+                    <span id="val-water">--%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="bar-water" class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="gauge-item">
+                <div class="gauge-label">
+                    <span>Interior Temp</span>
+                    <span id="val-temp">--°C</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Section -->
+        <div id="security-card" class="card">
+            <h2>Security System</h2>
+            <div id="security-status" class="status-indicator status-safe">SYSTEM DISARMED</div>
+            <button id="btn-security" class="control-btn btn-arm">ARM SYSTEM</button>
+            <br>
+            <button id="btn-test-alarm" class="control-btn" style="font-size: 0.8rem;">Test Alarm</button>
+        </div>
+    </div>
+
+    <div id="voice-status">Listening...</div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

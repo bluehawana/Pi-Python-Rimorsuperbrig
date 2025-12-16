@@ -1,0 +1,9 @@
+Flask==3.0.0
+python-dotenv==1.0.0
+requests==2.31.0
+RPi.GPIO==0.7.1; platform_system=="Linux"
+adafruit-circuitpython-ads1x15==2.2.12
+picamera==1.13; platform_system=="Linux"
+mysql-connector-python==8.2.0
+gps==3.19
+Pillow==10.0.0
