@@ -23,7 +23,7 @@ A comprehensive car computer system designed for Vanlife in Europe. This system 
 ## Credits & Acknowledgements
 This project continues the work and inspiration from:
 *   **Rupert Ferder** ([@rupertferder6768](https://www.youtube.com/@rupertferder6768)) - Mentor and provider of the original codebase foundation.
-*   **Original Inspiration**: Based on concepts from the [VAN_PI_RIMOR](https://github.com/bluehawana/VAN_PI_RIMOR) repository.
+*   **Original Inspiration**: Based on concepts from the [Pekaway/VAN_PI](https://github.com/Pekaway/VAN_PI) repository.
 
 ## License
 MIT
