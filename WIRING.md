@@ -56,7 +56,16 @@ Connects via GPIO.
 Connects to the CSI camera port on the Raspberry Pi board using the ribbon cable.
 *   Enable camera interface in `raspi-config`.
 
-## Powering the Pi in a Van
-*   Use a high-quality **12V to 5V (USB-C)** buck converter / hardwire kit.
-*   Ensure it provides at least 3A.
-*   Ideally, connect to the "Leisure Battery" to avoid draining the starter battery.
+## Powering the Pi (Crucial for Van Life)
+**Do NOT use a standard USB power bank or direct connection.**
+
+### The "Supercapacitor" Approach (Recommended)
+As researched, Lithium batteries are dangerous in hot cars. Use a **Supercapacitor UPS**.
+1.  **Hardware**: Look for "Raspberry Pi Supercapacitor UPS HAT" (e.g., from 52Pi or electronics enthusiasts).
+2.  **Function**:
+    *   It charges continuously from the van's 12V (via a 12V->5V converter).
+    *   When you turn off the ignition, the capacitors have enough energy to keep the Pi running for ~30-60 seconds.
+    *   The UPS detects power loss and sends a "safe shutdown" command to the Pi so the SD card doesn't get corrupted.
+
+### Wiring the Power
+1.  **Van Battery (12V)** -> **Fuse (5A)** -> **Buck Converter (12V to 5V 3A)** -> **Supercapacitor HAT** -> **Raspberry Pi**.
